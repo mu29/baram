@@ -17,7 +17,7 @@ namespace baram {
     class SpriteManager {
     private:
         list<Sprite*> spriteList;
-        //static SpriteManager* mManager;
+        static SpriteManager* mInstance;
     public:
         SpriteManager();
         ~SpriteManager();
@@ -25,14 +25,12 @@ namespace baram {
         void addSprite(Sprite&);
         void removeSprite(Sprite&);
         void draw(SDL_Renderer&);
-        /*
+        
         static SpriteManager* getInstance() {
-            if (mManager == NULL)
-                mManager = new SpriteManager();
-            return mManager;
-        }*/
+            if (mInstance == nullptr)
+                mInstance = new SpriteManager();
+            return mInstance;
+        }
     };
 }
-
-//baram::SpriteManager* baram::SpriteManager::mManager = NULL;
 #endif

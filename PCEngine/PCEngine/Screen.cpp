@@ -19,7 +19,7 @@ Screen::Screen() {
     createWindow();
     createRenderer();
     setupRenderer();
-    mSpriteManager = new SpriteManager();
+    mSpriteManager = SpriteManager::getInstance();
 }
 
 bool Screen::initSDL() {
@@ -56,3 +56,5 @@ void Screen::draw() {
     mSpriteManager->draw(*mRenderer);
     SDL_RenderPresent(mRenderer);
 }
+
+Screen* Screen::mInstance = nullptr;

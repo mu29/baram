@@ -19,17 +19,24 @@ namespace baram {
         SDL_Window *mWindow;
         SDL_Renderer *mRenderer;
         SpriteManager* mSpriteManager;
+        static Screen* mInstance;
+        
+        Screen();
+        ~Screen();
         
         bool initSDL();
         bool createWindow();
         bool createRenderer();
         void setupRenderer();
     public:
-        Screen();
-        ~Screen();
-        
         void update();
         void draw();
+        
+        static Screen* getInstance() {
+            if (mInstance == nullptr)
+                mInstance = new Screen();
+            return mInstance;
+        }
     };
 }
 

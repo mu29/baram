@@ -15,7 +15,7 @@ using namespace baram;
 
 int main( int argc, char* args[] )
 {
-    Screen* screen = new Screen();
+    Screen* screen = Screen::getInstance();
     
     bool loop = true;
     while (loop) {

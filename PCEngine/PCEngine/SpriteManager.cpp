@@ -38,3 +38,5 @@ void SpriteManager::draw(SDL_Renderer& _renderer) {
         SDL_RenderCopy(&_renderer, (*iter)->mTexture, NULL, &((*iter)->mRect));
     }
 }
+
+SpriteManager* SpriteManager::mInstance = nullptr;
