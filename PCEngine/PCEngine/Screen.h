@@ -10,12 +10,15 @@
 #define __PCEngine__Screen__
 
 #include <SDL2/SDL.h>
+#include "SpriteManager.h"
+
 namespace baram {
     class Screen {
     private:
         SDL_Rect mWindowRect;
         SDL_Window *mWindow;
         SDL_Renderer *mRenderer;
+        SpriteManager* mSpriteManager;
         
         bool initSDL();
         bool createWindow();
@@ -24,6 +27,7 @@ namespace baram {
     public:
         Screen();
         ~Screen();
+        
         void update();
         void draw();
     };
