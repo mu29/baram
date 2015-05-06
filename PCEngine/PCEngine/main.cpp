@@ -8,10 +8,10 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
 
 #include "Screen.h"
 using namespace baram;
-
 
 int main( int argc, char* args[] )
 {
