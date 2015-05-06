@@ -6,9 +6,10 @@
 //  Copyright (c) 2015년 작은별. All rights reserved.
 //
 
+#include "Screen.h"
 #include "Sprite.h"
 #include "SpriteManager.h"
-#include "Error.h"
+#include "Constant.h"
 using namespace baram;
 
 Sprite::Sprite() {
@@ -19,7 +20,6 @@ Sprite::Sprite() {
     mOriginalRect = mRect;
     z = 0;
     mTexture = NULL;
-    mRenderer = NULL;
 }
 
 Sprite::Sprite(int _width, int _height) {
@@ -30,36 +30,33 @@ Sprite::Sprite(int _width, int _height) {
     mOriginalRect = mRect;
     z = 0;
     mTexture = NULL;
-    mRenderer = NULL;
 }
 
-Sprite::Sprite(SDL_Renderer* _renderer, const char* _file) {
+Sprite::Sprite(const char* _file) {
     mRect.x = 0;
     mRect.y = 0;
     z = 0;
     mFile = _file;
-    mRenderer = _renderer;
-    loadTexture(*mRenderer, *mFile);
+    loadTexture(*mFile);
 }
 
 Sprite::Sprite(const Sprite& other) {
-    mRect.x = 0;
-    mRect.y = 0;
-    z = 0;
+    mRect.x = other.mRect.x;
+    mRect.y = other.mRect.y;
+    z = other.z;
     mFile = other.mFile;
-    mRenderer = other.mRenderer;
-    loadTexture(*mRenderer, *mFile);
+    loadTexture(*mFile);
 }
 
 Sprite::~Sprite() {
     SDL_DestroyTexture(mTexture);
     mTexture = NULL;
-    mRenderer = NULL;
 }
 
-void Sprite::loadTexture(SDL_Renderer& _renderer, const char& _file) {
+void Sprite::loadTexture(const char& _file) {
     try {
-        mTexture = IMG_LoadTexture(&_renderer, &_file);
+        SDL_Renderer* renderer = Screen::getInstance()->getRenderer();
+        mTexture = IMG_LoadTexture(renderer, &_file);
         if (mTexture == nullptr)
             throw Error::NULL_TEXTURE;
         

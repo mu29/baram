@@ -24,6 +24,15 @@ namespace baram {
             std::cout << msg << " (" << code  << ")" << std::endl;
         }
     };
+    
+    class Key {
+        const static int NUMBER = 5;
+        const static int UP = 0;
+        const static int DOWN = 1;
+        const static int LEFT = 2;
+        const static int RIGHT = 3;
+        const static int CONFIRM = 4;
+    };
 }
 
 #endif

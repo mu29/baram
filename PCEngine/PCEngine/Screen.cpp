@@ -57,4 +57,8 @@ void Screen::draw() {
     SDL_RenderPresent(mRenderer);
 }
 
+SDL_Renderer* Screen::getRenderer() {
+    return mRenderer;
+}
+
 Screen* Screen::mInstance = nullptr;

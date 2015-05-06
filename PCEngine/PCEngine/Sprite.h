@@ -21,15 +21,14 @@ namespace baram {
         SDL_Rect mRect;
         SDL_Rect mOriginalRect;
         SDL_Texture* mTexture;
-        SDL_Renderer* mRenderer;
     public:
         Sprite();
         Sprite(int, int);
-        Sprite(SDL_Renderer*, const char*);
+        Sprite(const char*);
         Sprite(const Sprite&);
         ~Sprite();
         
-        void loadTexture(SDL_Renderer&, const char&);
+        void loadTexture(const char&);
         int getX();
         int getY();
         int getWidth();

@@ -31,6 +31,7 @@ namespace baram {
     public:
         void update();
         void draw();
+        SDL_Renderer* getRenderer();
         
         static Screen* getInstance() {
             if (mInstance == nullptr)
