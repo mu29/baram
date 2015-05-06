@@ -19,6 +19,7 @@ namespace baram {
         const char* mFile;
         int z;
         SDL_Rect mRect;
+        SDL_Rect mOriginalRect;
         SDL_Texture* mTexture;
         SDL_Renderer* mRenderer;
     public:
@@ -39,6 +40,7 @@ namespace baram {
         void setWidth(int);
         void setHeight(int);
         void setRect(SDL_Rect&);
+        void expend(float);
         
         friend class SpriteManager;
     };

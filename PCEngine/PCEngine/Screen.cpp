@@ -18,7 +18,7 @@ Screen::Screen() {
     initSDL();
     createWindow();
     createRenderer();
-    setupRenderer();
+    setUpRenderer();
     mSpriteManager = SpriteManager::getInstance();
 }
 
@@ -44,7 +44,7 @@ bool Screen::createRenderer() {
     return true;
 }
 
-void Screen::setupRenderer() {
+void Screen::setUpRenderer() {
     // 렌더러 크기를 윈도우 크기와 맞게 설정
     SDL_RenderSetLogicalSize(mRenderer, mWindowRect.w, mWindowRect.h);
     // 배경 칠하자

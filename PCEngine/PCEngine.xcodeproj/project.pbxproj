@@ -14,6 +14,7 @@
 		5B5CCA931AF9D0580077DDA2 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5CCA901AF9D0580077DDA2 /* SDL2_ttf.framework */; };
 		5B5CCA961AF9D7870077DDA2 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CCA941AF9D7870077DDA2 /* Screen.cpp */; };
 		5B5CCA991AF9E3710077DDA2 /* SpriteManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CCA971AF9E3710077DDA2 /* SpriteManager.cpp */; };
+		5B5CCA9C1AFA12370077DDA2 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CCA9A1AFA12370077DDA2 /* Input.cpp */; };
 		5BE7EBFB1AF9CBA400DEA002 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7EBF91AF9CBA400DEA002 /* Sprite.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		5B5CCA951AF9D7870077DDA2 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
 		5B5CCA971AF9E3710077DDA2 /* SpriteManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteManager.cpp; sourceTree = "<group>"; };
 		5B5CCA981AF9E3710077DDA2 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteManager.h; sourceTree = "<group>"; };
+		5B5CCA9A1AFA12370077DDA2 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
+		5B5CCA9B1AFA12370077DDA2 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		5BE7EBF91AF9CBA400DEA002 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		5BE7EBFA1AF9CBA400DEA002 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +94,8 @@
 				5B5CCA951AF9D7870077DDA2 /* Screen.h */,
 				5B5CCA971AF9E3710077DDA2 /* SpriteManager.cpp */,
 				5B5CCA981AF9E3710077DDA2 /* SpriteManager.h */,
+				5B5CCA9A1AFA12370077DDA2 /* Input.cpp */,
+				5B5CCA9B1AFA12370077DDA2 /* Input.h */,
 			);
 			path = PCEngine;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				5BE7EBFB1AF9CBA400DEA002 /* Sprite.cpp in Sources */,
 				5B3B35571AF8FDBA0027B1DA /* main.cpp in Sources */,
 				5B5CCA961AF9D7870077DDA2 /* Screen.cpp in Sources */,
+				5B5CCA9C1AFA12370077DDA2 /* Input.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

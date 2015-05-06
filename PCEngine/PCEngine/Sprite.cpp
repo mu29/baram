@@ -7,6 +7,7 @@
 //
 
 #include "Sprite.h"
+#include "SpriteManager.h"
 #include "Error.h"
 using namespace baram;
 
@@ -15,6 +16,7 @@ Sprite::Sprite() {
     mRect.y = 0;
     mRect.w = 0;
     mRect.h = 0;
+    mOriginalRect = mRect;
     z = 0;
     mTexture = NULL;
     mRenderer = NULL;
@@ -25,6 +27,7 @@ Sprite::Sprite(int _width, int _height) {
     mRect.y = 0;
     mRect.w = _width;
     mRect.h = _height;
+    mOriginalRect = mRect;
     z = 0;
     mTexture = NULL;
     mRenderer = NULL;
@@ -59,7 +62,11 @@ void Sprite::loadTexture(SDL_Renderer& _renderer, const char& _file) {
         mTexture = IMG_LoadTexture(&_renderer, &_file);
         if (mTexture == nullptr)
             throw Error::NULL_TEXTURE;
+        
         SDL_QueryTexture(mTexture, NULL, NULL, &mRect.w, &mRect.h);
+        mOriginalRect = mRect;
+        SpriteManager* manager = SpriteManager::getInstance();
+        manager->addSprite(*this);
     } catch (int e) {
         Error::print(e, SDL_GetError());
     }
@@ -108,4 +115,9 @@ void Sprite::setRect(SDL_Rect& rect) {
     mRect.y = rect.y;
     mRect.w = rect.w;
     mRect.h = rect.h;
+}
+
+void Sprite::expend(float rate) {
+    mRect.w *= rate;
+    mRect.h *= rate;
 }

@@ -27,7 +27,7 @@ namespace baram {
         bool initSDL();
         bool createWindow();
         bool createRenderer();
-        void setupRenderer();
+        void setUpRenderer();
     public:
         void update();
         void draw();
