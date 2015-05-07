@@ -12,8 +12,12 @@
 namespace baram {
     class Input {
     private:
-        bool* currentKeyTable;
-        bool* previousKeyTable;
+        int mMouseX;
+        int mMouseY;
+        int mMouseOX;
+        int mMouseOY;
+        bool* mCurrentKeyTable;
+        bool* mPreviousKeyTable;
         static Input* mInstance;
         
         Input();

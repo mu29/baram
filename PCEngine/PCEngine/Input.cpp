@@ -12,18 +12,18 @@
 using namespace baram;
 
 Input::Input() {
-    currentKeyTable = new bool[Key::NUMBER];
-    previousKeyTable = new bool[Key::NUMBER];
+    mCurrentKeyTable = new bool[Key::NUMBER];
+    mPreviousKeyTable = new bool[Key::NUMBER];
 }
 
 Input::~Input() {
-    delete[] currentKeyTable;
-    delete[] previousKeyTable;
+    delete[] mCurrentKeyTable;
+    delete[] mPreviousKeyTable;
 }
 
 void Input::update() {
     for (int i = 0; i < Key::NUMBER; i++) {
-        previousKeyTable[i] = currentKeyTable[i];
+        mPreviousKeyTable[i] = mCurrentKeyTable[i];
     }
     
     SDL_Event event;
@@ -39,13 +39,13 @@ void Input::update() {
                 
                 break;
             case SDL_MOUSEBUTTONUP:
-                
+                mCurrentKeyTable[Key::LMOUSE] = false;
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                
+                mCurrentKeyTable[Key::LMOUSE] = true;
                 break;
             case SDL_QUIT:
-                currentKeyTable[Key::QUIT] = true;
+                mCurrentKeyTable[Key::QUIT] = true;
                 break;
         }
     }
@@ -55,30 +55,30 @@ void Input::updateKeyTable(SDL_Event& _event, bool _value) {
     switch (_event.key.keysym.sym)
     {
         case SDLK_UP:
-            currentKeyTable[Key::UP] = _value;
+            mCurrentKeyTable[Key::UP] = _value;
             break;
         case SDLK_DOWN:
-            currentKeyTable[Key::DOWN] = _value;
+            mCurrentKeyTable[Key::DOWN] = _value;
             break;
         case SDLK_LEFT:
-            currentKeyTable[Key::LEFT] = _value;
+            mCurrentKeyTable[Key::LEFT] = _value;
             break;
         case SDLK_RIGHT:
-            currentKeyTable[Key::RIGHT] = _value;
+            mCurrentKeyTable[Key::RIGHT] = _value;
             break;
         case SDLK_SPACE:
         case SDLK_RETURN:
-            currentKeyTable[Key::CONFIRM] = _value;
+            mCurrentKeyTable[Key::CONFIRM] = _value;
             break;
     }
 }
 
 bool Input::trigger(int code) {
-    return !currentKeyTable[code] && previousKeyTable[code];
+    return !mCurrentKeyTable[code] && mPreviousKeyTable[code];
 }
 
 bool Input::press(int code) {
-    return currentKeyTable[code] && previousKeyTable[code];
+    return mCurrentKeyTable[code] && mPreviousKeyTable[code];
 }
 
 Input* Input::mInstance = nullptr;

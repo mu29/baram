@@ -28,10 +28,10 @@ int main( int argc, char* args[] )
     while (loop) {
         input->update();
         
-        if (input->trigger(Key::RIGHT)) {
+        if (input->trigger(Key::LMOUSE)) {
             s->setX(s->getX() + 10);
         }
-        if (input->press(Key::LEFT)) {
+        if (input->press(Key::LMOUSE)) {
             s->setX(s->getX() - 10);
         }
         if (input->press(Key::QUIT)) {
