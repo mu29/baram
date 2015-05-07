@@ -17,7 +17,7 @@ using namespace std;
 namespace baram {
     class SpriteManager {
     private:
-        list<Sprite*> spriteList;
+        list<Sprite*> mSpriteList;
         static SpriteManager* mInstance;
     public:
         SpriteManager();

@@ -27,13 +27,15 @@ namespace baram {
     
     class Key {
     public:
-        const static int NUMBER = 6;
-        const static int UP = 0;
-        const static int DOWN = 1;
-        const static int LEFT = 2;
-        const static int RIGHT = 3;
-        const static int CONFIRM = 4;
-        const static int QUIT = 5;
+        const static int NUMBER = 8;
+        const static int QUIT = 0;
+        const static int LMOUSE = 1;
+        const static int RMOUSE = 2;
+        const static int UP = 3;
+        const static int DOWN = 4;
+        const static int LEFT = 5;
+        const static int RIGHT = 6;
+        const static int CONFIRM = 7;
     };
 }
 

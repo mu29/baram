@@ -17,8 +17,8 @@ namespace baram {
     class Sprite {
     private:
         const char* mFile;
-        int opacity;
-        int z;
+        int mOpacity;
+        int mElevation;
         SDL_Rect mRect;
         SDL_Rect mOriginalRect;
         SDL_Texture* mTexture;

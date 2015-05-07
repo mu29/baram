@@ -11,31 +11,31 @@
 using namespace baram;
 
 SpriteManager::SpriteManager() {
-    spriteList.clear();
+    mSpriteList.clear();
 }
 
 SpriteManager::~SpriteManager() {
-    spriteList.clear();
+    mSpriteList.clear();
 }
 
 void SpriteManager::addSprite(Sprite& _sprite) {
-    for(list<Sprite*>::iterator iter = spriteList.begin(); iter != spriteList.end(); ++iter) {
-        if ((*iter)->z > _sprite.z) {
-            spriteList.insert(--iter, &_sprite);
+    for(list<Sprite*>::iterator iter = mSpriteList.begin(); iter != mSpriteList.end(); ++iter) {
+        if ((*iter)->mElevation > _sprite.mElevation) {
+            mSpriteList.insert(--iter, &_sprite);
             break;
         }
     }
     
-    spriteList.push_back(&_sprite);
+    mSpriteList.push_back(&_sprite);
 }
 
 void SpriteManager::removeSprite(Sprite& _sprite) {
-    spriteList.remove(&_sprite);
+    mSpriteList.remove(&_sprite);
 }
 
 void SpriteManager::draw(SDL_Renderer& _renderer) {
-    for(list<Sprite*>::iterator sprite = spriteList.begin(); sprite != spriteList.end(); ++sprite) {
-        SDL_SetTextureAlphaMod((*sprite)->mTexture, (*sprite)->opacity);
+    for(list<Sprite*>::iterator sprite = mSpriteList.begin(); sprite != mSpriteList.end(); ++sprite) {
+        SDL_SetTextureAlphaMod((*sprite)->mTexture, (*sprite)->mOpacity);
         SDL_RenderCopy(&_renderer, (*sprite)->mTexture, NULL, &((*sprite)->mRect));
     }
 }
