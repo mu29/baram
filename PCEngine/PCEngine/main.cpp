@@ -10,12 +10,15 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 
+#include "Input.h"
 #include "Screen.h"
+#include "Constant.h"
 using namespace baram;
 
 int main( int argc, char* args[] )
 {
     Screen* screen = Screen::getInstance();
+    Input* input = Input::getInstance();
     
     
     Sprite* s = new Sprite("./test.png");
@@ -23,13 +26,20 @@ int main( int argc, char* args[] )
     
     bool loop = true;
     while (loop) {
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT)
-                loop = false;
+        input->update();
+        
+        if (input->trigger(Key::RIGHT)) {
+            s->setX(s->getX() + 10);
         }
+        if (input->press(Key::LEFT)) {
+            s->setX(s->getX() - 10);
+        }
+        if (input->press(Key::QUIT)) {
+            break;
+        }
+        
         screen->draw();
-        SDL_Delay( 16 );
+        //SDL_Delay( 16 );
     }
     
     return 0;
