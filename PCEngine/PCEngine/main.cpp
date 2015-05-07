@@ -17,6 +17,10 @@ int main( int argc, char* args[] )
 {
     Screen* screen = Screen::getInstance();
     
+    
+    Sprite* s = new Sprite("./test.png");
+    s->setOpacity(100);
+    
     bool loop = true;
     while (loop) {
         SDL_Event event;

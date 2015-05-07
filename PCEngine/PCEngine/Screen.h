@@ -36,6 +36,7 @@ namespace baram {
         static Screen* getInstance() {
             if (mInstance == nullptr)
                 mInstance = new Screen();
+            
             return mInstance;
         }
     };

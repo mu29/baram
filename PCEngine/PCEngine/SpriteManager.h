@@ -10,6 +10,7 @@
 #define __PCEngine__SpriteManager__
 
 #include <list>
+#include <SDL2_image/SDL_image.h>
 #include "Sprite.h"
 using namespace std;
 
@@ -29,6 +30,7 @@ namespace baram {
         static SpriteManager* getInstance() {
             if (mInstance == nullptr)
                 mInstance = new SpriteManager();
+            
             return mInstance;
         }
     };

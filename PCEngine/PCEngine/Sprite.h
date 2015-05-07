@@ -17,6 +17,7 @@ namespace baram {
     class Sprite {
     private:
         const char* mFile;
+        int opacity;
         int z;
         SDL_Rect mRect;
         SDL_Rect mOriginalRect;
@@ -39,6 +40,7 @@ namespace baram {
         void setWidth(int);
         void setHeight(int);
         void setRect(SDL_Rect&);
+        void setOpacity(int);
         void expend(float);
         
         friend class SpriteManager;

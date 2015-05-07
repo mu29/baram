@@ -40,11 +40,11 @@ Sprite::Sprite(const char* _file) {
     loadTexture(*mFile);
 }
 
-Sprite::Sprite(const Sprite& other) {
-    mRect.x = other.mRect.x;
-    mRect.y = other.mRect.y;
-    z = other.z;
-    mFile = other.mFile;
+Sprite::Sprite(const Sprite& _other) {
+    mRect.x = _other.mRect.x;
+    mRect.y = _other.mRect.y;
+    z = _other.z;
+    mFile = _other.mFile;
     loadTexture(*mFile);
 }
 
@@ -60,6 +60,7 @@ void Sprite::loadTexture(const char& _file) {
         if (mTexture == nullptr)
             throw Error::NULL_TEXTURE;
         
+        opacity = 255;
         SDL_QueryTexture(mTexture, NULL, NULL, &mRect.w, &mRect.h);
         mOriginalRect = mRect;
         SpriteManager* manager = SpriteManager::getInstance();
@@ -107,14 +108,18 @@ void Sprite::setHeight(int _height) {
     mRect.h = _height;
 }
 
-void Sprite::setRect(SDL_Rect& rect) {
-    mRect.x = rect.x;
-    mRect.y = rect.y;
-    mRect.w = rect.w;
-    mRect.h = rect.h;
+void Sprite::setRect(SDL_Rect& _rect) {
+    mRect.x = _rect.x;
+    mRect.y = _rect.y;
+    mRect.w = _rect.w;
+    mRect.h = _rect.h;
 }
 
-void Sprite::expend(float rate) {
-    mRect.w *= rate;
-    mRect.h *= rate;
+void Sprite::setOpacity(int _opacity) {
+    opacity = _opacity;
+}
+
+void Sprite::expend(float _rate) {
+    mRect.w *= _rate;
+    mRect.h *= _rate;
 }

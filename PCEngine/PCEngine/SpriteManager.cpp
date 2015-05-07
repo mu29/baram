@@ -34,8 +34,9 @@ void SpriteManager::removeSprite(Sprite& _sprite) {
 }
 
 void SpriteManager::draw(SDL_Renderer& _renderer) {
-    for(list<Sprite*>::iterator iter = spriteList.begin(); iter != spriteList.end(); ++iter) {
-        SDL_RenderCopy(&_renderer, (*iter)->mTexture, NULL, &((*iter)->mRect));
+    for(list<Sprite*>::iterator sprite = spriteList.begin(); sprite != spriteList.end(); ++sprite) {
+        SDL_SetTextureAlphaMod((*sprite)->mTexture, (*sprite)->opacity);
+        SDL_RenderCopy(&_renderer, (*sprite)->mTexture, NULL, &((*sprite)->mRect));
     }
 }
 

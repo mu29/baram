@@ -47,7 +47,6 @@ bool Screen::createRenderer() {
 void Screen::setUpRenderer() {
     // 렌더러 크기를 윈도우 크기와 맞게 설정
     SDL_RenderSetLogicalSize(mRenderer, mWindowRect.w, mWindowRect.h);
-    // 배경 칠하자
     SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);
 }
 
