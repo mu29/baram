@@ -20,6 +20,9 @@ Sprite::Sprite() {
     mOriginalRect = mRect;
     mElevation = 0;
     mTexture = NULL;
+    
+    SpriteManager* manager = SpriteManager::getInstance();
+    manager->addSprite(*this);
 }
 
 Sprite::Sprite(int _width, int _height) {
@@ -30,6 +33,9 @@ Sprite::Sprite(int _width, int _height) {
     mOriginalRect = mRect;
     mElevation = 0;
     mTexture = NULL;
+    
+    SpriteManager* manager = SpriteManager::getInstance();
+    manager->addSprite(*this);
 }
 
 Sprite::Sprite(const char* _file) {
@@ -38,6 +44,9 @@ Sprite::Sprite(const char* _file) {
     mElevation = 0;
     mFile = _file;
     loadTexture(*mFile);
+    
+    SpriteManager* manager = SpriteManager::getInstance();
+    manager->addSprite(*this);
 }
 
 Sprite::Sprite(const Sprite& _other) {
@@ -46,6 +55,9 @@ Sprite::Sprite(const Sprite& _other) {
     mElevation = _other.mElevation;
     mFile = _other.mFile;
     loadTexture(*mFile);
+    
+    SpriteManager* manager = SpriteManager::getInstance();
+    manager->addSprite(*this);
 }
 
 Sprite::~Sprite() {
@@ -63,8 +75,6 @@ void Sprite::loadTexture(const char& _file) {
         mOpacity = 255;
         SDL_QueryTexture(mTexture, NULL, NULL, &mRect.w, &mRect.h);
         mOriginalRect = mRect;
-        SpriteManager* manager = SpriteManager::getInstance();
-        manager->addSprite(*this);
     } catch (int e) {
         Error::print(e, SDL_GetError());
     }

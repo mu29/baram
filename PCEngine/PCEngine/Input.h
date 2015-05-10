@@ -38,4 +38,4 @@ namespace baram {
     };
 }
 
-#endif /* defined(__PCEngine__Input__) */
+#endif

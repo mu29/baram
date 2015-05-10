@@ -21,7 +21,7 @@ int main( int argc, char* args[] )
     Input* input = Input::getInstance();
     
     
-    Sprite* s = new Sprite("./test.png");
+    Sprite* s = new Sprite();
     s->setOpacity(100);
     
     bool loop = true;
